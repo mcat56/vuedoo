@@ -38,9 +38,10 @@
 </template>
 
 <script>
-export default {
-  name: "NavbarComponent"
-};
+import { Component, Vue } from "vue-property-decorator";
+
+@Component
+export default class NavbarComponent extends Vue {}
 </script>
 
 <style lang="scss"></style>
