@@ -1,25 +1,15 @@
 <template>
   <div class="custom-component">
-    <v-tooltip bottom>
-      <template v-slot:activator="{ on, attrs }">
-        <v-col v-bind="attrs" v-on="on"
-          ><a id="component" href="#" v-on:click="addVue">
-            {{ name }}
-          </a></v-col
-        >
-      </template>
-      <span> HOVER PLEASER </span>
-    </v-tooltip>
+    <v-col v-on:click="$emit('addComponent', name)"
+      ><a href="#">
+        {{ name }}
+      </a></v-col
+    >
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      hover: false
-    };
-  },
   name: "CustomComponent",
   props: {
     name: {
@@ -32,4 +22,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style></style>

@@ -11,6 +11,11 @@ export default {
   name: "App",
   components: {
     NavbarComponent
+  },
+  props: {
+    userComponents: {
+      type: Array
+    }
   }
 };
 </script>

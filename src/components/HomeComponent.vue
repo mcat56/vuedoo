@@ -7,18 +7,20 @@
       <v-container class="component-grid">
         <v-row>
           <custom-component
+            v-on:addComponent="userComponents.push($event)"
             name="Navigation Bar"
             img='<img
-            alt="Navigation Preview"
-            src="../assets/navigation-preview.png"/>'
+            alt="../assets/navigation-preview.png"/>'
           />
           <custom-component
+            v-on:addComponent="userComponents.push($event)"
             name="Side Bar"
             img='<img
             alt="Sidebar Preview"
             src="../assets/sidebar-preview.png"/>'
           />
           <custom-component
+            v-on:addComponent="userComponents.push($event)"
             name="Logo"
             img='<img
             alt="Logo Preview"
@@ -27,20 +29,42 @@
         </v-row>
       </v-container>
     </div>
+    <h2>Chosen Components</h2>
+    <ul style="list-style-type:none">
+      <li v-for="userComponent in userComponents" v-bind:key="userComponent">
+        {{ userComponent }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
 import CustomComponent from "@/components/CustomComponent.vue";
 
-@Component({
+export default {
+  data() {
+    return {
+      userComponents: new Array<string>()
+    };
+  },
+  props: {
+    msg: {
+      type: String
+    }
+  },
+  // methods: {
+  //   onAddComponent(name: string) {
+  //     this.userComponents.push(name);
+  //   }
+  // },
   components: { CustomComponent }
-})
-export default class HomeComponent extends Vue {
-  @Prop() private msg!: string;
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+ul li {
+  color: black;
+
+}
+</style>
