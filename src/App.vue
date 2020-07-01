@@ -1,23 +1,14 @@
 <template>
   <div id="app">
-    <navbar-component />
     <router-view />
   </div>
 </template>
 
-<script>
-import NavbarComponent from "@/components/NavbarComponent.vue";
-export default {
-  name: "App",
-  components: {
-    NavbarComponent
-  },
-  props: {
-    userComponents: {
-      type: Array
-    }
-  }
-};
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({})
+export default class App extends Vue {}
 </script>
 <style lang="scss">
 #app {

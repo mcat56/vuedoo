@@ -7,21 +7,27 @@
       <v-container class="component-grid">
         <v-row>
           <custom-component
+            v-on:updatePage="sendActiveComponents"
             v-on:addComponent="userComponents.push($event)"
             name="Navigation Bar"
+            componentName="navbar"
             img='<img
             alt="../assets/navigation-preview.png"/>'
           />
           <custom-component
+            v-on:updatePage="sendActiveComponents"
             v-on:addComponent="userComponents.push($event)"
             name="Side Bar"
+            componentName="sidebar"
             img='<img
             alt="Sidebar Preview"
             src="../assets/sidebar-preview.png"/>'
           />
           <custom-component
+            v-on:updatePage="$emit('updatePage', userComponents)"
             v-on:addComponent="userComponents.push($event)"
             name="Logo"
+            componentName="logo"
             img='<img
             alt="Logo Preview"
             src="../assets/logo-preview.png"/>'
@@ -40,31 +46,28 @@
 
 <script lang="ts">
 import CustomComponent from "@/components/CustomComponent.vue";
+import { Component, Vue } from "vue-property-decorator";
 
-export default {
-  data() {
-    return {
-      userComponents: new Array<string>()
-    };
-  },
+@Component({
+  components: { CustomComponent },
   props: {
     msg: {
       type: String
     }
-  },
-  // methods: {
-  //   onAddComponent(name: string) {
-  //     this.userComponents.push(name);
-  //   }
-  // },
-  components: { CustomComponent }
-};
+  }
+})
+export default class HomeComponent extends Vue {
+  userComponents: string[] = [];
+
+  sendActiveComponents() {
+    this.$emit("updatePage", this.userComponents);
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 ul li {
   color: black;
-
 }
 </style>

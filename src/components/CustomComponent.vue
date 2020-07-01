@@ -1,6 +1,10 @@
 <template>
   <div class="custom-component">
-    <v-col v-on:click="$emit('addComponent', name)"
+    <v-col
+      v-on:click="
+        $emit('addComponent', componentName);
+        $emit('updatePage');
+      "
       ><a href="#">
         {{ name }}
       </a></v-col
@@ -16,6 +20,9 @@ export default {
       type: String
     },
     img: {
+      type: String
+    },
+    componentName: {
       type: String
     }
   }
