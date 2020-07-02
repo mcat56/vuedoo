@@ -12,7 +12,8 @@
             name="Navigation Bar"
             componentName="navbar"
             img='<img
-            alt="../assets/navigation-preview.png"/>'
+            alt="Navigation Preview"
+            src="https://i.imgur.com/wlwZgAT.png"/>'
           />
           <custom-component
             v-on:updatePage="sendActiveComponents"
@@ -21,16 +22,16 @@
             componentName="sidebar"
             img='<img
             alt="Sidebar Preview"
-            src="../assets/sidebar-preview.png"/>'
+            src="https://i.imgur.com/rCxHh83.png"/>'
           />
           <custom-component
             v-on:updatePage="$emit('updatePage', userComponents)"
             v-on:addComponent="userComponents.push($event)"
-            name="Logo"
-            componentName="logo"
+            name="Carousel"
+            componentName="carousel"
             img='<img
-            alt="Logo Preview"
-            src="../assets/logo-preview.png"/>'
+            alt="Carousel Preview"
+            src="https://i.imgur.com/bG2vKWK.png"/>'
           />
         </v-row>
       </v-container>

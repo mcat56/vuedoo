@@ -1,13 +1,14 @@
 <template>
   <div class="custom-component">
     <v-col
+      v-b-popover.hover="{ content: img, html: true }"
       v-on:click="
         $emit('addComponent', componentName);
         $emit('updatePage');
       "
-      ><a href="#">
+      ><b-link href="#">
         {{ name }}
-      </a></v-col
+      </b-link></v-col
     >
   </div>
 </template>
