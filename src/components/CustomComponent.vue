@@ -1,11 +1,12 @@
 <template>
   <div class="custom-component">
-    <v-col
+    <b-row
+      class="justify-content-md-center"
       v-b-popover.hover="{ content: img, html: true }"
       v-on:click="$store.commit('updateComponents', componentName)"
       ><b-link href="#">
         {{ name }}
-      </b-link></v-col
+      </b-link></b-row
     >
   </div>
 </template>

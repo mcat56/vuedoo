@@ -4,8 +4,8 @@
 
     <h2>Choose Your Components</h2>
     <div class="components">
-      <v-container class="component-grid">
-        <v-row>
+      <b-container>
+        <b-col>
           <custom-component
             name="Navigation Bar"
             componentName="navbar"
@@ -27,13 +27,13 @@
             alt="Carousel Preview"
             src="https://i.imgur.com/bG2vKWK.png"/>'
           />
-        </v-row>
-      </v-container>
+        </b-col>
+      </b-container>
     </div>
     <h2>Chosen Components</h2>
     <ul style="list-style-type:none">
       <li
-        v-for="userComponent in this.$store.state.userComponents"
+        v-for="userComponent in $store.state.userComponents"
         v-bind:key="userComponent"
       >
         {{ userComponent }}
