@@ -9,7 +9,11 @@ export default new Vuex.Store({
   },
   mutations: {
     updateComponents(state, component) {
-      state.userComponents.push(component);
+      if (state.userComponents.includes(component)) {
+        state.userComponents.splice(state.userComponents.indexOf(component),1)
+      } else {
+        state.userComponents.push(component);
+      }
     }
   },
   actions: {},

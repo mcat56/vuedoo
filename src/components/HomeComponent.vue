@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <h1>{{ msg }}</h1>
-    <h1>{{ this.$store.state.userComponents }}</h1>
 
     <h2>Choose Your Components</h2>
     <div class="components">
