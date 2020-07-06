@@ -4,8 +4,14 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    userComponents: Array<string>() 
+  },
+  mutations: {
+    updateComponents(state, component) {
+      state.userComponents.push(component);
+    }
+  },
   actions: {},
   modules: {}
 });

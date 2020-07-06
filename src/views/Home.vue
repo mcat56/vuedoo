@@ -1,13 +1,10 @@
 <template>
   <div class="home">
-    <navbar v-show="activeComponents.includes('navbar')" />
-    <sidebar v-show="activeComponents.includes('sidebar')" />
-    <carousel v-show="activeComponents.includes('carousel')" />
+    <navbar v-show="$store.state.userComponents.includes('navbar')" />
+    <sidebar v-show="$store.state.userComponents.includes('sidebar')" />
+    <carousel v-show="$store.state.userComponents.includes('carousel')" />
     <img alt="Vue logo" src="../assets/logo.png" />
-    <home-component
-      msg="Welcome to Your Vue.js App"
-      v-on:updatePage="activeComponents = $event"
-    />
+    <home-component msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
@@ -21,7 +18,5 @@ import Carousel from "@/components/Carousel.vue";
 @Component({
   components: { HomeComponent, Navbar, Sidebar, Carousel }
 })
-export default class Home extends Vue {
-  activeComponents: string[] = [];
-}
+export default class Home extends Vue {}
 </script>

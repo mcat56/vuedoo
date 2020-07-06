@@ -1,14 +1,13 @@
 <template>
   <div class="home">
     <h1>{{ msg }}</h1>
+    <h1>{{ this.$store.state.userComponents }}</h1>
 
     <h2>Choose Your Components</h2>
     <div class="components">
       <v-container class="component-grid">
         <v-row>
           <custom-component
-            v-on:updatePage="sendActiveComponents"
-            v-on:addComponent="userComponents.push($event)"
             name="Navigation Bar"
             componentName="navbar"
             img='<img
@@ -16,8 +15,6 @@
             src="https://i.imgur.com/wlwZgAT.png"/>'
           />
           <custom-component
-            v-on:updatePage="sendActiveComponents"
-            v-on:addComponent="userComponents.push($event)"
             name="Side Bar"
             componentName="sidebar"
             img='<img
@@ -25,8 +22,6 @@
             src="https://i.imgur.com/rCxHh83.png"/>'
           />
           <custom-component
-            v-on:updatePage="$emit('updatePage', userComponents)"
-            v-on:addComponent="userComponents.push($event)"
             name="Carousel"
             componentName="carousel"
             img='<img
@@ -38,7 +33,10 @@
     </div>
     <h2>Chosen Components</h2>
     <ul style="list-style-type:none">
-      <li v-for="userComponent in userComponents" v-bind:key="userComponent">
+      <li
+        v-for="userComponent in this.$store.state.userComponents"
+        v-bind:key="userComponent"
+      >
         {{ userComponent }}
       </li>
     </ul>
@@ -57,18 +55,8 @@ import { Component, Vue } from "vue-property-decorator";
     }
   }
 })
-export default class HomeComponent extends Vue {
-  userComponents: string[] = [];
-
-  sendActiveComponents() {
-    this.$emit("updatePage", this.userComponents);
-  }
-}
+export default class HomeComponent extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-ul li {
-  color: black;
-}
-</style>
+<style scoped lang="scss"></style>
