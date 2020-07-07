@@ -13,7 +13,7 @@ describe("HomeComponent.vue", () => {
       localVue, propsData: { msg }, store
     });
     expect(wrapper.classes('HomeComponent'))
-
+    expect(wrapper.text()).toMatch('Chosen Components')
     expect(wrapper.text()).toMatch(msg);
   });
 });
